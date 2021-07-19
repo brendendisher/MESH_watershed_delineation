@@ -1,0 +1,264 @@
+Reserved 1 - THEXTRA                               !ROW 1
+0.0                                                !min
+0.0001                                             !max
+Reserved 2 - ICE_INDEX                             !ROW 2
+0.0                                                !min
+0.0001                                             !max
+Reserved 3 - GWSCALE                               !ROW 3
+0.0                                                !min
+0.0001                                             !max
+River roughness factor (WF_R2) (5 classes maximum) !ROW 4
+0.02                                               !min
+2.0                                                !max
+WF_R2 - CLASS 2                                    !ROW 5
+0.02                                               !min
+2.0                                                !max
+WF_R2 - CLASS 3                                    !ROW 6
+0.02                                               !min
+2.0                                                !max
+WF_R2 - CLASS 4                                    !ROW 7
+0.02                                               !min
+2.0                                                !max
+WF_R2 - CLASS 5                                    !ROW 8
+0.02                                               !min
+2.0                                                !max
+maximum soil porosity                              !ROW 9
+0.0                                                !min 
+1.0                                                !max
+depth from surface to bottom of rooting zone for maximum water holding capacity, m !ROW 10
+0.0                                                !min
+4.1                                                !max
+Surface saturations [0.75 - 1.0]                   !ROW 11
+0.0                                                !min
+1.0                                                !max
+Overnight minimum to cause ice lens after major melt -[50 - 0.0 ºC] !ROW 12
+-50.0                                              !min
+0.0                                                !max
+DRNROW - DRAINAGE INDEX, CALCULATED DRAINAGE IS MULTIPLIED BY THIS VALUE                      !ROW 13
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min DRNROW          
+1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0      !max
+SDEPROW - THE PERMEABLE DEPTH OF THE SOIL COLUMN                                              !ROW 14
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min SDEPROW 
+4.1    4.1    4.1    4.1    4.1    4.1    4.1    4.1    4.1    4.1    4.1      !max
+FAREROW - WHEN RUNNING A MOSAIC, THE FRACTIONAL AREA THAT THIS TILE REPRESENTS IN A GRID CELL !ROW 15
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min FAREROW  
+5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0      !max
+DDENROW - THE DRAINAGE DENSITY OF THE GRU IN m/m2                                           !ROW 16
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min DDENROW 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+XSLPROW - AVERAGE OVERLAND SLOPE OF A GIVEN GRU                                               !ROW 17
+0.0001 0.0001 0.0001 0.0001 0.0001 0.0001 0.0001 0.0001 0.0001 0.0001 0.0001   !min XSLPROW 
+0.5    0.5    0.5    0.5    0.5    0.5    0.5    0.5    0.5    0.5    0.5      !max
+XDNROW - HORIZONTAL CONDUCTIVITY AT A DEPTH OF h0 DIVIDED BY HORIZONTAL CONDUCTIVITY AT SURFACE !ROW 18
+0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001    !min XDNROW 
+1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0      !max
+MANNROW - MANNING ROUGHNESS COEFFICIENT                                                       !ROW 19
+0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001  0.001    !min MANNROW 
+2.0    2.0    2.0    2.0    2.0    2.0    2.0    2.0    2.0    2.0    2.0      !max
+KSROW - HORIZONTAL CONDUCTIVITY AT SURFACE                                                    !ROW 20
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min KSROW 
+1.02   1.02   1.02   1.02   1.02   1.02   1.02   1.02   1.02   1.02   1.02     !max
+SANDROW - PERCENTAGES OF SAND CONTENT OF SOIL LAYER 1                                         !ROW 21
+-5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0     !min % OF SAND not organic in soil layer 1
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CLAYROW - PERCENTAGES OF CLAY CONTENT OF SOIL LAYER 1                                         !ROW 22
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min % OF CLAY not organic or sand in soil layer 1
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ORGMROW - PERCENTAGES OF ORGANIC MATTER OF SOIL LAYER 1                                       !ROW 23
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min % OF ORGANIC in soil layer 1
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+SANDROW - PERCENTAGES OF SAND CONTENT OF SOIL LAYER 2                                         !ROW 24
+-5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0     !min % OF SAND not organic in soil layer 2
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CLAYROW - PERCENTAGES OF CLAY CONTENT OF SOIL LAYER 2                                         !ROW 25
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min % OF CLAY not organic or sand in soil layer 2
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ORGMROW - PERCENTAGES OF ORGANIC MATTER OF SOIL LAYER 2                                       !ROW 26
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min % OF ORGANIC in soil layer 2
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+SANDROW - PERCENTAGES OF SAND CONTENT OF SOIL LAYER 3                                         !ROW 27
+-5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0   -5.0     !min % OF SAND not organic in soil layer 3
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CLAYROW - PERCENTAGES OF CLAY CONTENT OF SOIL LAYER 3                                         !ROW 28
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min % OF CLAY not organic or sand in soil layer 3
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ORGMROW - PERCENTAGES OF ORGANIC MATTER OF SOIL LAYER 3                                       !ROW 29
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min % OF ORGANIC in soil layer 3
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ZSNLROW - LIMITING SNOW DEPTH BELOW WHICH COVERAGE IS < 100%                                  !ROW 30
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ZSNLROW    **From MESH_parameters_hydrology.ini
+5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0      !max
+ZPLSROW - MAXIMUM WATER PONDING DEPTH FOR SNOW-COVERED AREAS                                  !ROW 31
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ZPLSROW 
+5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0      !max
+ZPLGROW - MAXIMUM WATER PONDING DEPTH FOR SNOW-FREE AREAS                                     !ROW 32
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ZPLGROW 
+5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0      !max
+FZRCROW - COEFFICIENT FOR THE FROZEN SOIL INFILTRATION PARAMETERIC EQUATION                   !ROW 33
+1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0    1.0      !min FZRCROW
+5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0    5.0      !max
+LNZ0ROW - NATURAL LOGARITHM OF THE ROUGHNESS LENGTH FOR LAND COVER CATEGORY 1                 !ROW 34
+-20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0    !min LNZ0ROW1   Column 1 **Atmospheric parameters from MESH_parameters_CLASS.INI 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALVCROW - VISIBLE ALBEDO FOR LAND COVER CATEGORY 1                                            !ROW 35
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALVCROW1  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALICROW - NEAR INFRARED ALBEDO FOR LAND COVER CATEGORY 1                                      !ROW 36
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALICROW1       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+RSMNROW - MINIMUM STOMATAL RESISTANCE FOR THE VEGETATION TYPE 1                               !ROW 37
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min RSMNROW1       
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT - COMMON VALUE 0.5 !ROW 38
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDAROW1 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION -OMMON VALUE 100 !ROW 39
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGAROW1  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LNZ0ROW - NATURAL LOGARITHM OF THE ROUGHNESS LENGTH FOR LAND COVER CATEGORY 2                 !ROW 40
+-20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0    !min LNZ0ROW2   Column 2 **Atmospheric parameters from MESH_parameters_CLASS.INI 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALVCROW - VISIBLE ALBEDO FOR LAND COVER CATEGORY 2                                            !ROW 41
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALVCROW2  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALICROW - NEAR INFRARED ALBEDO FOR LAND COVER CATEGORY 2                                      !ROW 42
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALICROW2       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+RSMNROW - MINIMUM STOMATAL RESISTANCE FOR THE VEGETATION TYPE 2                               !ROW 43
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min RSMNROW2       
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT - COMMON VALUE 0.5 !ROW 44
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDAROW2 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION -OMMON VALUE 100 !ROW 45
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGAROW2  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LNZ0ROW - NATURAL LOGARITHM OF THE ROUGHNESS LENGTH FOR LAND COVER CATEGORY 3                 !ROW 46
+-20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0    !min LNZ0ROW3   Column 3 **Atmospheric parameters from MESH_parameters_CLASS.INI 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALVCROW - VISIBLE ALBEDO FOR LAND COVER CATEGORY 3                                            !ROW 47
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALVCROW3  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALICROW - NEAR INFRARED ALBEDO FOR LAND COVER CATEGORY 3                                      !ROW 48
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALICROW3       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+RSMNROW - MINIMUM STOMATAL RESISTANCE FOR THE VEGETATION TYPE 3                               !ROW 49
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min RSMNROW3       
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT - COMMON VALUE 0.5 !ROW 50
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDAROW3 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION -OMMON VALUE 100 !ROW 51
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGAROW3  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LNZ0ROW - NATURAL LOGARITHM OF THE ROUGHNESS LENGTH FOR LAND COVER CATEGORY 4                 !ROW 52
+-20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0    !min LNZ0ROW4   Column 4 **Atmospheric parameters from MESH_parameters_CLASS.INI 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALVCROW - VISIBLE ALBEDO FOR LAND COVER CATEGORY 4                                            !ROW 53
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALVCROW4  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALICROW - NEAR INFRARED ALBEDO FOR LAND COVER CATEGORY 4                                      !ROW 54
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALICROW4       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+RSMNROW - MINIMUM STOMATAL RESISTANCE FOR THE VEGETATION TYPE 4                               !ROW 55
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min RSMNROW4       
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT - COMMON VALUE 0.5 !ROW 56
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDAROW4 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGAROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION -OMMON VALUE 100 !ROW 57
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGAROW4  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LNZ0ROW - NATURAL LOGARITHM OF THE ROUGHNESS LENGTH FOR LAND COVER CATEGORY 5                 !ROW 58
+-20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0  -20.0    !min LNZ0ROW5   Column 5 **Atmospheric parameters from MESH_parameters_CLASS.INI 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALVCROW - VISIBLE ALBEDO FOR LAND COVER CATEGORY 5                                            !ROW 59
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALVCROW5  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ALICROW - NEAR INFRARED ALBEDO FOR LAND COVER CATEGORY 5                                      !ROW 60
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ALICROW5       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+LAMXROW - MAXIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 1                                   !ROW 61
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMXROW1   Column 6 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+LAMNROW - MINIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 1                                   !ROW 62
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMNROW1  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CMASROW - ANNUAL MAXIMUM CANOPY MASS FOR VEGETATION TYPE 1 [kg m-2]                           !ROW 63
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min CMASROW1       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ROOTROW - ROOTING DEPTH FOR VEGETATION TYPE 1                                                 !ROW 64
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ROOTROW1       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+QA50ROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO LIGHT, COMMON VALUES - 30 TO 50 W/M2 !ROW 65
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min QA50ROW1 
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT, COMMON VALUES - 1.0 !ROW 66
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDBROW1  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION, COMMON VALUES - 5       !ROW 67
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGBROW1  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LAMXROW - MAXIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 2                                   !ROW 68
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMXROW2   Column 7 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+LAMNROW - MINIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 2                                   !ROW 69
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMNROW2  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CMASROW - ANNUAL MAXIMUM CANOPY MASS FOR VEGETATION TYPE 2 [kg m-2]                           !ROW 70
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min CMASROW2       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ROOTROW - ROOTING DEPTH FOR VEGETATION TYPE 2                                                 !ROW 71
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ROOTROW2       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+QA50ROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO LIGHT, COMMON VALUES - 30 TO 50 W/M2 !ROW 72
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min QA50ROW2 
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT, COMMON VALUES - 1.0 !ROW 73
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDBROW2  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION, COMMON VALUES - 5 !ROW 74
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGBROW2  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LAMXROW - MAXIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 3                                   !ROW 75
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMXROW3   Column 8 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+LAMNROW - MINIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 3                                   !ROW 76
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMNROW3  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CMASROW - ANNUAL MAXIMUM CANOPY MASS FOR VEGETATION TYPE 3 [kg m-2]                           !ROW 77
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min CMASROW3       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ROOTROW - ROOTING DEPTH FOR VEGETATION TYPE 3                                                 !ROW 78
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ROOTROW3       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+QA50ROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO LIGHT, COMMON VALUES - 30 TO 50 W/M2 !ROW 79
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min QA50ROW3 
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT, COMMON VALUES - 1.0 !ROW 80
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDBROW3  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION, COMMON VALUES - 5 !ROW 81
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGBROW3  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+LAMXROW - MAXIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 4                                   !ROW 82
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMXROW4   Column 9 
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+LAMNROW - MINIMUM LEAF AREA INDEX FOR THE VEGETATION TYPE 4                                   !ROW 83
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min LAMNROW4  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+CMASROW - ANNUAL MAXIMUM CANOPY MASS FOR VEGETATION TYPE 4 [kg m-2]                           !ROW 84
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min CMASROW4       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+ROOTROW - ROOTING DEPTH FOR VEGETATION TYPE 4                                                 !ROW 85
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min ROOTROW4       
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+QA50ROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO LIGHT, COMMON VALUES - 30 TO 50 W/M2 !ROW 86
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min QA50ROW4 
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
+VPDBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO VAPOR PRESSURE DEFICIT, COMMON VALUES - 1.0 !ROW 87
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min VPDBROW4  
+100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0  100.0    !max
+PSGBROW - COEFFICIENT GOVERNING THE RESPONSE OF STOMATES TO SOIL WATER SUCTION, COMMON VALUES - 5       !ROW 88
+0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0      !min PSGBROW4  
+1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0 1000.0   !max
