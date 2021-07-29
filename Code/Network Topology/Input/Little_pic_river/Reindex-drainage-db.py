@@ -27,12 +27,27 @@ if (err != 0): exit()
 #Import Data
 d1 = pd.read_csv(input_drainage_file)
 
+#Remove nan and replace with zero 
+#temporary solution
+d1['gradient'] = d1['gradient'].fillna(0)
+
 # open as Xarray Dataset
 ds = xs.Dataset.from_dataframe(d1)
 
 #Count the number of outlets (where data is -1). Note: Currenly only one outlet is supported 
 outlets = np.where(ds['next_order'].values == -1)[0]
 
+# Checks.
+err = 0
+if (len(outlets) == 0):
+    print("ERROR: No outlets found.")
+    err = 1
+elif (len(outlets) != 1):
+    print("ERROR: Algorithm does not support multiple outlets at this time. Routine cannot continue.")
+    err = 1
+ 
+# Exit if errors were found.
+if (err != 0): exit()
 ##########################################################################
 #Drop all other variables not needed inside.dbf
 ds = ds[['cat', 'area', 's_order', 'next_order' , 'length', 'gradient', 'lat', 'lon']]
@@ -179,7 +194,7 @@ new_SVS[:, 0] = 1.0
 
 # Add atttributes to 'GRU' variables 
 ds['GRU'] = (['subbasin', 'gru'], new_SVS) 
-#ds['GRU'].attrs = (np.array([0], dtype = 'int32')) 
+ds['GRU'].attrs = (np.array([0], dtype = 'int32'))
 ds['GRU'].attrs['long_name'] ='Fraction of land cover (GRU)'
 ds['GRU'].attrs['units'] ='1'
 ds['GRU'].attrs['grid_mapping'] = 'crs'
