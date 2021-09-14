@@ -21,7 +21,7 @@ basin_buffered = 'basin_buffered'
 gcore.run_command('v.buffer', input = Basin_in, distance = '0.05', minordistance = '0.05', output = basin_buffered, overwrite = True)
 #update mask 
 #add if mask true, then remove
-gcore.run_command('r.mask', vect=basin_buffered, overwrite = True)
+gcore.run_command('r.mask', vect=basin_buffered, overwrite = True)#set computational region#Note: the next step will fail if the computational region is not set correctly gcore.run_command('g.region', raster = DEM_in, vector = basin_buffered)
 #generate flow accumulation and direction 
 flow_dir = 'flow_dir'
 flow_acc = 'flow_acc'

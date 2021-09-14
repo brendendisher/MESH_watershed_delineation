@@ -1,7 +1,7 @@
 from grass.script import core as gcore
 #install required GRASS modules
 #gcore.run_command('g.extension', extension = 'r.stream.segment')
-#gcore.run_command('g.extension', extension = 'r.stream.basins')
+#gcore.run_command('g.extension', extension = 'r.stream.basins')################################################################################################## Declarations 
 #Define input and output data 
 input_DEM =r'C:\Users\DisherB\Documents\Watershed_Delin\Merit_Hydro\n50w120_elv.tif'
 input_WSC =r'C:\Users\DisherB\Documents\Watershed_Delin\WSC_Basins.gdb'
@@ -9,8 +9,8 @@ output_db = r'C:\Users\DisherB\Documents\Watershed_Delin\Python-Dev\drainage_out
 #Required arguments 
 WSC_basin = 'EC_05BB001_1' #Water Survey Canada (WSC) Basin ID 
 coords = '-115.5717,51.17222' # Coordinates of the outlet
-threshold = '5000' #Minimum flow accumulation for streams 
-# Import Raster
+threshold = '5000' #Minimum flow accumulation for streams #################################################################################################
+# Import Raster
 DEM_in = 'DEM_in'
 gcore.run_command('r.in.gdal', input = input_DEM, output = DEM_in, overwrite = True)
 #Import geodatabase
@@ -21,7 +21,7 @@ basin_buffered = 'basin_buffered'
 gcore.run_command('v.buffer', input = Basin_in, distance = '0.05', minordistance = '0.05', output = basin_buffered, overwrite = True)
 #update mask 
 #add if mask true, then remove
-#gcore.run_command('r.mask', vect=basin_buffered, overwrite = True)
+gcore.run_command('r.mask', vect=basin_buffered, overwrite = True)#set computational region#Note: the next step will fail if the computational region is not set correctly gcore.run_command('g.region', raster = DEM_in, vector = basin_buffered)
 #generate flow accumulation and direction 
 flow_dir = 'flow_dir'
 flow_acc = 'flow_acc'

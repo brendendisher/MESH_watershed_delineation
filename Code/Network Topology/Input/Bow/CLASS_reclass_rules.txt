@@ -1,0 +1,7 @@
+3 4 5 = 1 Deciduous forest
+1 2 6 = 2 Coniferous forest
+15     = 3 Agriculture
+7 thru 13 16 = 4 Low Vegetation
+14 = 5 Wetland 
+18 19 = 6 Water
+17 = 7 Impervious
