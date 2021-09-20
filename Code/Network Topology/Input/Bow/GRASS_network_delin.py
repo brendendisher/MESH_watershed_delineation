@@ -5,7 +5,7 @@ from grass.script import core as gcore
 #Define input and output data 
 input_DEM =r'C:\Users\DisherB\Documents\Watershed_Delin\Merit_Hydro\n50w120_elv.tif'
 input_WSC =r'C:\Users\DisherB\Documents\Watershed_Delin\WSC_Basins.gdb'
-output_db = r'C:\Users\DisherB\Documents\Watershed_Delin\Python-Dev\drainage_out.csv'
+output_db = r'C:\Users\DisherB\Documents\Watershed_Delin\Python-Dev\drainage_out.csv'output_LC_db = r'C:\Users\DisherB\Documents\Watershed_Delin\Python-Dev\drainage_LC_out.csv'
 #Required arguments 
 WSC_basin = 'EC_05BB001_1' #Water Survey Canada (WSC) Basin ID 
 coords = '-115.5717,51.17222' # Coordinates of the outlet
@@ -21,7 +21,7 @@ basin_buffered = 'basin_buffered'
 gcore.run_command('v.buffer', input = Basin_in, distance = '0.05', minordistance = '0.05', output = basin_buffered, overwrite = True)
 #update mask 
 #add if mask true, then remove
-gcore.run_command('r.mask', vect=basin_buffered, overwrite = True)#set computational region#Note: the next step will fail if the computational region is not set correctly gcore.run_command('g.region', raster = DEM_in, vector = basin_buffered)
+gcore.run_command('r.mask', vector= "basin_buffered", overwrite = True)#set computational region#Note: the next step will fail if the computational region is not set correctly gcore.run_command('g.region', raster = DEM_in, vector = basin_buffered)
 #generate flow accumulation and direction 
 flow_dir = 'flow_dir'
 flow_acc = 'flow_acc'
@@ -57,4 +57,4 @@ gcore.run_command('v.db.addcolumn', map = subbasins_vector, columns = "lon doubl
 gcore.run_command('v.to.db', map = subbasins_vector, option = 'area', columns = 'area')
 gcore.run_command('v.to.db', map = subbasins_vector, option = 'coor', columns = 'lon,lat')
 #Export attribute table 
-gcore.run_command('db.out.ogr', input = subbasins_vector, output = output_db, overwrite = True)
+gcore.run_command('db.out.ogr', input = subbasins_vector, output = output_db, overwrite = True)##################################################################################################overlay landcover data (optional)#import landcover raster from location#note: the due to an error with raster reprojection in GRASS, the landcover raster must first be added to a new location#and imported into this session. Refer here for instructions: #location = location containing LC data#mapset = mapset name (usually PERMANENT)#input = name of landcover datalocation = 'Landcover'mapset = 'PERMANENT'input = 'CAN_NALCMS_2015_v2_land_cover_30m'gcore.run_command('r.proj', location = location, mapset = mapset, input = input, overwrite = True)#reclassify raster data#Note: the file used in this example is found within the githubfile_path = r'C:\Users\DisherB\Documents\Watershed_Delin\Watershed_delineation\Code\Network Topology\Input\Bow\CLASS_reclass_rules.txt'gcore.run_command('r.reclass', input = input, output = 'Landcover_reclass', rules = file_path, overwrite = True)#convert to vector gcore.run_command('r.to.vect', input = 'Landcover_reclass', output = 'Landcover_reclass_vec', type = 'area', overwrite = True)#Overlay sub-basin delineation and landcover datagcore.run_command('v.overlay', ainput = 'subbasins_vector', binput = 'Landcover_reclass_vec', operator = 'and', output = 'LC_overlay', overwrite = True)#add new columns for areagcore.run_command('v.db.addcolumn', map = 'LC_overlay', columns = "area double precision")#generate values for new columns gcore.run_command('v.to.db', map = 'LC_overlay', option = 'area', columns = 'area')#Export attribute table gcore.run_command('db.out.ogr', input = 'LC_overlay', output = output_LC_db, overwrite = True)
