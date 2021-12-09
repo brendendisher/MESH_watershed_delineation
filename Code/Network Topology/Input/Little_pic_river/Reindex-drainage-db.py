@@ -42,9 +42,6 @@ err = 0
 if (len(outlets) == 0):
     print("ERROR: No outlets found.")
     err = 1
-elif (len(outlets) != 1):
-    print("ERROR: Algorithm does not support multiple outlets at this time. Routine cannot continue.")
-    err = 1
  
 # Exit if errors were found.
 if (err != 0): exit()
@@ -64,17 +61,25 @@ ds['next_order'][ds['next_order'] == -1] = 0
 #Create a subset of 'rank' and a dummy 'new_index' variable
 Rank = ds['s_order'].values.copy()
 new_index = []
+outlet_n = len(outlets)
 
 # Loop to re-rank values
-for i in range(1,len(Rank)+1):
+for i in range(1, ds['s_order'].values.max()+1):
     for j in range(0, len(Rank)):
         if Rank[j] == i:
             new_index.append(j)
+    #Remove outlets from new_index if > 1 (temporarily)
+    if outlet_n > 1: 
+        for z in range(0, outlets.argmax()+1):
+            new_index = list(filter(lambda num: num != outlets[z], new_index))
+        #re-add outlets at the end of the new_index
+        new_index.extend(outlets)
+    else:
+        pass
 
 # #re-order the variables based on the 'new_rank'
-for m in ['cat', 'area', 's_order', 'next_order' , 'length', 'gradient', 'lat', 'lon']:
+for m in ['cat','area','s_order', 'next_order' , 'length', 'gradient', 'lat', 'lon']:
      ds[m].values = ds[m].values[new_index]
-     
 #########################################################################
 #Drainage variables 
 # Set coordinates to latitude and longtitude
