@@ -61,27 +61,30 @@ ds['next_order'][ds['next_order'] == -1] = 0
 #re-indexing and re-ordering
 #Create a subset of 'rank' and a dummy 'new_index' variable
 Rank = ds['s_order'].values.copy()
+Next = ds['next_order'].values.copy()
 new_index = []
-outlet_n = len(outlets)
 
 # Loop to re-rank values
 for i in range(1, ds['s_order'].values.max()+1):
     for j in range(0, len(Rank)):
-        if Rank[j] == i:
+        if Rank[j] == i and not j in outlets:
             new_index.append(j)
-    #Remove outlets from new_index if > 1 (temporarily)
-    if outlet_n > 1: 
-        for z in range(0, outlets.argmax()+1):
-            new_index = list(filter(lambda num: num != outlets[z], new_index))
-        #re-add outlets at the end of the new_index
-        new_index.extend(outlets)
-    else:
-        pass
+            
+# #re-add outlets at the end of the index 
+new_index.extend(outlets)            
+
+#de-increment Rank and Next       
+now_next = 1
+for i in range(1, ds['s_order'].values.max()+1):
+        if i in ds['s_order'].values:
+            ds['next_order'].values = np.where(ds['next_order'].values == i, now_next, ds['next_order'].values)
+            ds['s_order'].values =  np.where(ds['s_order'].values == i, now_next, ds['s_order'].values)
+            now_next += 1
+
 
 # #re-order the variables based on the 'new_rank'
 for m in ['cat','area','s_order', 'next_order' , 'length', 'gradient', 'lat', 'lon']:
      ds[m].values = ds[m].values[new_index]
-
 #########################################################################
 #Drainage variables 
 # Set coordinates to latitude and longtitude

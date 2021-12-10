@@ -163,7 +163,6 @@ ds.to_netcdf(output_file)
 #assigning CLASS landcover data
 input_drainage_file_LC = 'C:/Users/DisherB/Documents/Watershed_Delin/Watershed_delineation/Code/Landcover/Input/CLASS/Little_pic_river/drainage_LC_out.csv'
 output_CLASS_file = 'C:/Users/DisherB/Documents/Watershed_Delin/Watershed_delineation/Code/Landcover/Output/CLASS/Little_pic_river/MESH_drainage_database.nc'
-
 #import data as pandas array
 l1 = pd.read_csv(input_drainage_file_LC)
 
@@ -172,6 +171,7 @@ ls_agg = l1.groupby(['a_cat', 'b_value'], as_index = False).agg({'a_area':'first
 
 #get unique landcover ID values
 LC_unique = ls_agg['b_value'].unique()                                                                 
+a_cat_unique= ls_agg['a_cat'].unique()  
 
 #Calculate relative area of each landcover 
 ls_agg['rel_area'] = (ls_agg['area']/ls_agg['a_area'])
@@ -179,9 +179,17 @@ ls_agg['rel_area'] = (ls_agg['area']/ls_agg['a_area'])
 new_CLASS = np.zeros((len(ds['ID']), len(LC_unique)))
 LC_unique = LC_unique.tolist()
 
-# re-order and wrangle  the data into the correct array shape. 
-for i , r in ls_agg.iterrows():
-    new_CLASS[new_index.index(r['a_cat']-1), LC_unique.index(r['b_value'])] = r['rel_area']
+# re-order and wrangle  he data into the correct array shape. 
+for i , r in ls_agg.iterrows(): 
+    count = 0 
+    for x in a_cat_unique:    
+        if x == r['a_cat']:
+            new_CLASS[new_index.index(count), LC_unique.index(r['b_value'])] = r['rel_area'] 
+        count += 1
+
+#Create dummy array for extra CLASS gru - Requred to run MESH
+dummy_array = np.zeros((len(ds['ID']),1))
+new_CLASS = np.append(new_CLASS, dummy_array, axis = 1)
 
 # Add atttributes to 'GRU' variables 
 ds['GRU'] = (['subbasin', 'gru'], new_CLASS) 
