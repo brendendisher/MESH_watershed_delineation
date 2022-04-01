@@ -1,11 +1,11 @@
-from grass.script import core as gcore
+from grass.script import core as gcorefrom osgeo import gdal, ogrimport subprocess
 #install required GRASS modules
 #gcore.run_command('g.extension', extension = 'r.stream.segment')
-#gcore.run_command('g.extension', extension = 'r.stream.basins')################################################################################################## Declarations 
+#gcore.run_command('g.extension', extension = 'r.stream.basins')################################################################################################## Declarations #project pathproj_path = 'C:/Users/DisherB/Documents/Watershed_Delin/'
 #Define input and output data 
-input_DEM =r'C:\Users\DisherB\Documents\Watershed_Delin\Merit_Hydro\n50w120_elv.tif'
-input_WSC =r'C:\Users\DisherB\Documents\Watershed_Delin\WSC_Basins.gdb'
-output_db = r'C:\Users\DisherB\Documents\Watershed_Delin\Python-Dev\drainage_out.csv'output_LC_db = r'C:\Users\DisherB\Documents\Watershed_Delin\Python-Dev\drainage_LC_out.csv'
+input_DEM = proj_path + 'Merit_Hydro/n50w120_elv.tif'
+input_WSC = proj_path + 'WSC_Basins.gdb'
+output_db = proj_path + 'Python-Dev/drainage_out.csv'output_LC_db = proj_path + 'Python-Dev/drainage_LC_out.csv'
 #Required arguments 
 WSC_basin = 'EC_05BB001_1' #Water Survey Canada (WSC) Basin ID 
 coords = '-115.5717,51.17222' # Coordinates of the outlet
@@ -41,12 +41,10 @@ gcore.run_command('r.stream.segment', stream_rast = stream_raster, elevation = D
 #Generate subbasins
 watershed_subbasins ='watershed_subbasins'
 gcore.run_command('r.stream.basins', direction = flow_dir, stream_rast = stream_raster, basins = watershed_subbasins, overwrite = True)
-#Clean data 
-watershed_subbasins_cleaned = 'watershed_subbasins_cleaned'
-gcore.run_command('r.neighbors', input = watershed_subbasins, output = watershed_subbasins_cleaned, method = 'mode', overwrite = True)
+#Clean datawatershed_subbasins_cleaned = 'watershed_subbasins_cleaned'gcore.run_command('r.neighbors', input = watershed_subbasins, output = watershed_subbasins_cleaned, size = 3,method = 'mode', overwrite = True)############################################################ sometimes r.neighbors does not remove all spilt polygons, the tool below (gdal.sieve) completes a similar process.# the threshold parameter can be adjusted based on the DEM.#Export watershed_subbasins gcore.run_command('r.out.gdal', input = watershed_subbasins_cleaned, output = proj_path +'watershed_subbasins_cleaned.tif', format = 'GTiff', overwrite = True)#import raster as gdal object Image = gdal.Open(proj_path + 'watershed_subbasins_cleaned.tif', 1)  # open image in read-write modeBand  = Image.GetRasterBand(1) #retrieve the raster band gdal.SieveFilter(srcBand = Band, maskBand = Band, dstBand   = Band, threshold = 10) #run gdal.sieve #Export the sieved file as a .tiff gdal.GetDriverByName('Gtiff').CreateCopy(proj_path + 'watershed_subbasins_sieved.tif', Image, strict = 0)#import the sieved file watershed_subbasins_sieved = 'watershed_subbasins_sieved'gcore.run_command('r.in.gdal', input = proj_path + 'watershed_subbasins_sieved.tif', output = watershed_subbasins_sieved, overwrite = True)################################################################
 #Convert to vector 
 subbasins_vector = 'subbasins_vector'
-gcore.run_command('r.to.vect', input = watershed_subbasins_cleaned, output = subbasins_vector, type ='area', flags = 'v', overwrite = True)
+gcore.run_command('r.to.vect', input = watershed_subbasins_sieved, output = subbasins_vector, type ='area', flags = 'v', overwrite = True)
 #Join datasets 
 gcore.run_command('v.db.join', map = subbasins_vector, column='cat', other_table =stream_segments, other_column = 's_order', overwrite = True)
 #add new columns for area, lat and lon
@@ -58,3 +56,4 @@ gcore.run_command('v.to.db', map = subbasins_vector, option = 'area', columns = 
 gcore.run_command('v.to.db', map = subbasins_vector, option = 'coor', columns = 'lon,lat')
 #Export attribute table 
 gcore.run_command('db.out.ogr', input = subbasins_vector, output = output_db, overwrite = True)##################################################################################################overlay landcover data (optional)#import landcover raster from location#note: the due to an error with raster reprojection in GRASS, the landcover raster must first be added to a new location#and imported into this session. Refer here for instructions: #location = location containing LC data#mapset = mapset name (usually PERMANENT)#input = name of landcover datalocation = 'Landcover'mapset = 'PERMANENT'input = 'CAN_NALCMS_2015_v2_land_cover_30m'gcore.run_command('r.proj', location = location, mapset = mapset, input = input, overwrite = True)#reclassify raster data#Note: the file used in this example is found within the githubfile_path = r'C:\Users\DisherB\Documents\Watershed_Delin\Watershed_delineation\Code\Network Topology\Input\Bow\CLASS_reclass_rules.txt'gcore.run_command('r.reclass', input = input, output = 'Landcover_reclass', rules = file_path, overwrite = True)#convert to vector gcore.run_command('r.to.vect', input = 'Landcover_reclass', output = 'Landcover_reclass_vec', type = 'area', overwrite = True)#Overlay sub-basin delineation and landcover datagcore.run_command('v.overlay', ainput = 'subbasins_vector', binput = 'Landcover_reclass_vec', operator = 'and', output = 'LC_overlay', overwrite = True)#add new columns for areagcore.run_command('v.db.addcolumn', map = 'LC_overlay', columns = "area double precision")#generate values for new columns gcore.run_command('v.to.db', map = 'LC_overlay', option = 'area', columns = 'area')#Export attribute table gcore.run_command('db.out.ogr', input = 'LC_overlay', output = output_LC_db, overwrite = True)
+
